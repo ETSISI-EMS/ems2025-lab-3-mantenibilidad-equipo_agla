@@ -70,10 +70,10 @@ public class ContactosCovid {
 		String datas[] = dividirEntrada(data);
 		for (String linea : datas) {
 			String datos[] = this.dividirLineaData(linea);
-			if (!datos[0].equals(objetivo) && !datos[0].equals("LOCALIZACION")) {
+			if (!datos[0].equals(OBJETIVO) && !datos[0].equals("LOCALIZACION")) {
 				throw new EmsInvalidTypeException();
 			}
-			if (datos[0].equals(objetivo)) {
+			if (datos[0].equals(OBJETIVO)) {
 				if (datos.length != Constantes.MAX_DATOS_PERSONA) {
 					throw new EmsInvalidNumberOfDataException("El número de datos para PERSONA es menor de 8");
 				}
@@ -121,10 +121,10 @@ public class ContactosCovid {
 				datas = dividirEntrada(data.trim());
 				for (String linea : datas) {
 					String datos[] = this.dividirLineaData(linea);
-					if (!datos[0].equals(objetivo) && !datos[0].equals("LOCALIZACION")) {
+					if (!datos[0].equals(OBJETIVO) && !datos[0].equals("LOCALIZACION")) {
 						throw new EmsInvalidTypeException();
 					}
-					if (datos[0].equals(objetivo)) {
+					if (datos[0].equals(OBJETIVO)) {
 						if (datos.length != Constantes.MAX_DATOS_PERSONA) {
 							throw new EmsInvalidNumberOfDataException("El número de datos para PERSONA es menor de 8");
 						}
