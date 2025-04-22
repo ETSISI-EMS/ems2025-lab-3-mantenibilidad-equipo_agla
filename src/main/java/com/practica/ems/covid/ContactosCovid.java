@@ -283,28 +283,14 @@ public class ContactosCovid {
 		}
 		return posicionPersona;
 	}
-	
-	/*private FechaHora parsearFecha (String fecha) {
-		int dia, mes, anio;
-		String[] valores = fecha.split("\\/");
-		dia = Integer.parseInt(valores[0]);
-		mes = Integer.parseInt(valores[1]);
-		anio = Integer.parseInt(valores[2]);
-		FechaHora fechaHora = new FechaHora(dia, mes, anio, 0, 0);
-		return fechaHora;
-	}*/
-	
-	private FechaHora parsearFecha (String fecha, String hora) {
-		int dia, mes, anio;
-		String[] valores = fecha.split("\\/");
-		dia = Integer.parseInt(valores[0]);
-		mes = Integer.parseInt(valores[1]);
-		anio = Integer.parseInt(valores[2]);
-		int minuto, segundo;
-		valores = hora.split("\\:");
-		minuto = Integer.parseInt(valores[0]);
-		segundo = Integer.parseInt(valores[1]);
-		FechaHora fechaHora = new FechaHora(dia, mes, anio, minuto, segundo);
+
+	private  FechaHora parsearFecha (String fecha, String hora) {
+		String[] valoresFecha = fecha.split("\\/");
+		String[] valoresHora = hora.split("\\:");
+
+		FechaHora fechaHora = new FechaHora(Integer.parseInt(valoresFecha[0]), Integer.parseInt(valoresFecha[1]),
+				Integer.parseInt(valoresFecha[2]), Integer.parseInt(valoresHora[0]), Integer.parseInt(valoresHora[1]));
 		return fechaHora;
 	}
+
 }
