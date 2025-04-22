@@ -25,7 +25,8 @@ public class ContactosCovid {
 	private Poblacion poblacion;
 	private Localizacion localizacion;
 	private ListaContactos listaContactos;
-	private static final String OBJETIVO = "PERSONA";
+	private static final String PERSONA = "PERSONA";
+	private static final String LOCALIZACION = "LOCALIZACION";
 
 	public ContactosCovid() {
 		this.poblacion = new Poblacion();
@@ -70,16 +71,16 @@ public class ContactosCovid {
 		String datas[] = dividirEntrada(data);
 		for (String linea : datas) {
 			String datos[] = this.dividirLineaData(linea);
-			if (!datos[0].equals(OBJETIVO) && !datos[0].equals("LOCALIZACION")) {
+			if (!datos[0].equals(PERSONA) && !datos[0].equals(LOCALIZACION)) {
 				throw new EmsInvalidTypeException();
 			}
-			if (datos[0].equals(OBJETIVO)) {
+			if (datos[0].equals(PERSONA)) {
 				if (datos.length != Constantes.MAX_DATOS_PERSONA) {
 					throw new EmsInvalidNumberOfDataException("El número de datos para PERSONA es menor de 8");
 				}
 				this.poblacion.addPersona(this.crearPersona(datos));
 			}
-			if (datos[0].equals("LOCALIZACION")) {
+			if (datos[0].equals(LOCALIZACION)) {
 				if (datos.length != Constantes.MAX_DATOS_LOCALIZACION) {
 					throw new EmsInvalidNumberOfDataException("El número de datos para LOCALIZACION es menor de 6");
 				}
@@ -121,16 +122,16 @@ public class ContactosCovid {
 				datas = dividirEntrada(data.trim());
 				for (String linea : datas) {
 					String datos[] = this.dividirLineaData(linea);
-					if (!datos[0].equals(OBJETIVO) && !datos[0].equals("LOCALIZACION")) {
+					if (!datos[0].equals(PERSONA) && !datos[0].equals(LOCALIZACION)) {
 						throw new EmsInvalidTypeException();
 					}
-					if (datos[0].equals(OBJETIVO)) {
+					if (datos[0].equals(PERSONA)) {
 						if (datos.length != Constantes.MAX_DATOS_PERSONA) {
 							throw new EmsInvalidNumberOfDataException("El número de datos para PERSONA es menor de 8");
 						}
 						this.poblacion.addPersona(this.crearPersona(datos));
 					}
-					if (datos[0].equals("LOCALIZACION")) {
+					if (datos[0].equals(LOCALIZACION)) {
 						if (datos.length != Constantes.MAX_DATOS_LOCALIZACION) {
 							throw new EmsInvalidNumberOfDataException(
 									"El número de datos para LOCALIZACION es menor de 6" );
